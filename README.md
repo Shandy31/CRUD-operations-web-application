@@ -3,5 +3,5 @@
 CRUD - Create
        Retieve
        Update
-       Delete
+       Delete.
 A web applications for CRUD operations is done with [Django + MongoDB]
