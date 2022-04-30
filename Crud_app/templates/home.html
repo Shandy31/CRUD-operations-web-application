@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+    <div class="text-center bg-green-600 py-2 text-3xl">
+        <h1>Hospital Management System</h1>
+    </div>
+    <div class="p-5 w-fit mx-auto">
+        <a class="text-blue-700 bg-gray-200 border rounded-sm my-2 px-5" href="{% url 'add' %}">Add User</a>
+        <table class="mx-auto border border-2">
+            <tr class="text-white bg-gray-800">
+                <th>ID</th>
+                <th>Patient Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Phone number</th>
+                <th>Doctor preferred</th>
+            </tr>
+            {% for user in users %}
+            <tr class="border border-gray-400">
+                <td class="bg-gray-200 px-5">{{ user.id }}</td>
+                <td class="bg-gray-200 px-5">{{ user.patient_name }}</td>
+                <td class="bg-gray-200 px-5">{{ user.gender }}</td>
+                <td class="bg-gray-200 px-5">{{ user.age }}</td>
+                <td class="bg-gray-200 px-5">{{ user.phone_no }}</td>
+                <td class="bg-gray-200 px-5">{{ user.DR_preferred }}</td>
+                <td class="bg-gray-200 px-5 text-blue-500"><a href="{% url 'edit' user.id %}">Edit</a> <a href="{% url 'delete' user.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
